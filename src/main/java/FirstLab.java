@@ -117,6 +117,7 @@ public class FirstLab {
     }
 
     private static double bisection(double a, double b) {
+        int iterationNum = 0;
         if (a == INFINITY && b == INFINITY) {
             return ERROR;
         }
@@ -129,6 +130,7 @@ public class FirstLab {
                 while (funcValue(border) < 0) {
                     i++;
                     border = b - i*delta;
+                    iterationNum++;
                 }
                 a = border;
                 b = b - (i-1)*delta;
@@ -137,6 +139,7 @@ public class FirstLab {
                 while (funcValue(border) > 0) {
                     i++;
                     border = b - i*delta;
+                    iterationNum++;
                 }
                 a = border;
                 b = b - (i-1)*delta;
@@ -151,6 +154,7 @@ public class FirstLab {
                 while (funcValue(border) > 0) {
                     i++;
                     border = a + i*delta;
+                    iterationNum++;
                 }
                 b = border;
                 a = a + (i-1)*delta;
@@ -159,6 +163,7 @@ public class FirstLab {
                 while (funcValue(border) < 0) {
                     i++;
                     border = a + i*delta;
+                    iterationNum++;
                 }
                 b = border;
                 a = a + (i-1)*delta;
@@ -175,7 +180,7 @@ public class FirstLab {
             }
             c = (a+b)/2;
             result = funcValueCases(c);
-
+            iterationNum++;
         }
         return c;
     }
